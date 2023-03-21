@@ -1,0 +1,20 @@
+<div>
+<form [formGroup]="miFormulario" (ngSubmit)="Cotizar()">
+  <label class="label">{{labelMoneda}}</label>
+
+  <select class="select" formControlName="moneda">
+    <option value="">Elige tu moneda</option>
+    <option *ngFor="let m of monedas;let i=index" [value]=m.id>{{m.nombre}}</option>
+  </select>
+  <label class="label">{{labelMonedaCripto}}</label>
+  <select class="select" formControlName="monedaCripto">
+    <option value="">Elige tu moneda</option>
+    <option *ngFor="let mc of monedasCritpo;let i=index" [value]=mc.Name>{{mc.FullName}}</option>
+  </select>
+
+  <input type="submit" class="boton" value="Cotizar"/>
+</form>
+
+</div>
+
+<app-resultado [resultado]="resultadoCotizacion" *ngIf="resultadoCotizacion.PRICE"></app-resultado>
